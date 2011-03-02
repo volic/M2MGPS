@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="M2MWebClient">
+		<wb-resource deploy-path="/" source-path="/WebContent" />
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java" />
+		<dependent-module deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/con/org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER">
+			<dependency-type>consumes</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="jsf-api-2.1.0-b03.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/var/M2_REPO/com/sun/faces/jsf-api/2.1.0-b03/jsf-api-2.1.0-b03.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="jsf-impl-2.1.0-b03.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/var/M2_REPO/com/sun/faces/jsf-impl/2.1.0-b03/jsf-impl-2.1.0-b03.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="jsp-api-2.1.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/var/M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="el-ri-1.0.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/var/M2_REPO/com/sun/el/el-ri/1.0/el-ri-1.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="jstl-1.2.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/var/M2_REPO/javax/servlet/jstl/1.2/jstl-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="servlet-api-2.5.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/var/M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="M2MServer.jar"
+			deploy-path="/WEB-INF/lib" handle="module:/resource/M2MServer/M2MServer">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="QSAdminGUI.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/QSAdminGUI.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="commons-beanutils.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/commons-beanutils.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="commons-digester.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/commons-digester.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="metouia.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/metouia.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="commons-logging.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/commons-logging.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="commons-collections.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/commons-collections.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="QuickServer.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/QuickServer.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="commons-pool.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/M2MServer/lib/QuickServer1.4.7/dist/commons-pool.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<property name="context-root" value="M2MWebClient" />
+		<property name="java-output-path" value="/M2MWebClient/build/classes" />
+	</wb-module>
+</project-modules>

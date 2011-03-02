@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>New User</title>
+</head>
+<body>
+<f:view>
+	<div>Add User</div>
+	<h:form>
+		<div>
+		<div><h:outputLabel for="login" value="Login" /> <h:inputText
+			id="login" value="#{createuser.login }" /></div>
+		<div><h:outputLabel value="password" /> <h:inputSecret
+			value="#{createuser.password }" /></div>
+		<div><h:outputLabel value="Confirm Password" /> <h:inputSecret
+			value="#{createuser.confirmPassword }" /></div>
+		<div><h:outputLabel for="first_name" value="First Name" /> <h:inputText
+			id="first_name" value="#{createuser.firstName }" /></div>
+		<h:message for="first_name"></h:message>
+		<div><h:outputLabel value="Last Name" /> <h:inputText
+			value="#{createuser.lastName }" /></div>
+		</div>
+		<div><h:commandButton value="Add"
+			action="#{createuser.createNewUser}" /></div>
+	</h:form>
+<!--	<div><h:dataTable value="createuser.users">-->
+<!--		<h:column></h:column>-->
+<!--	</h:dataTable></div>-->
+</f:view>
+</body>
+</html>

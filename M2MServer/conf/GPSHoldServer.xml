@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quickserver>
+
+	<name>GPSHoldServer</name>
+	<port>6000</port>
+	<bind-address>127.0.0.1</bind-address>
+
+	<!-- business logic classes -->
+	<client-event-handler>
+		com.navigrad.m2m.server.core.GPSHoldServerHandler
+	</client-event-handler>
+	<client-command-handler>
+		com.navigrad.m2m.server.core.GPSHoldServerHandler
+	</client-command-handler>
+	<default-data-mode>
+		<data-type-in>String</data-type-in>
+		<data-type-out>String</data-type-out>
+	</default-data-mode>
+</quickserver>
