@@ -26,10 +26,19 @@
 			value="#{createuser.lastName }" /></div>
 		</div>
 		<div><h:commandButton value="Add"
-			action="#{createuser.createNewUser}" /></div>
+			action="#{authorization.login}" /></div>
 	</h:form>
-<!--	<div><h:dataTable value="createuser.users">-->
-<!--		<h:column></h:column>-->
+	<h:outputLabel value="#{createuser.login}"/>
+<!--	<div><h:dataTable var="user" value="${createuser.users}">-->
+<!--		<f:facet name="header">-->
+<!--			<h:outputText value="Users" />-->
+<!--		</f:facet>-->
+<!--		<h:column > -->
+<!--		<f:facet name="header">-->
+<!--		<h:outputLabel value="login"/>-->
+<!--		</f:facet>-->
+<!--		<h:outputLabel value="${user.login}"/>-->
+<!--		</h:column>-->
 <!--	</h:dataTable></div>-->
 </f:view>
 </body>

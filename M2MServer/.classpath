@@ -3,14 +3,5 @@
 	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/commons-beanutils.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/commons-collections.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/commons-digester.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/commons-logging.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/commons-pool.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/metouia.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/QSAdminGUI.jar"/>
-	<classpathentry kind="lib" path="lib/QuickServer1.4.7/dist/QuickServer.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
