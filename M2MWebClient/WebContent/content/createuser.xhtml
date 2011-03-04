@@ -13,8 +13,13 @@
 	<div>Add User</div>
 	<h:form>
 		<div>
+		<div>
 		<div><h:outputLabel for="login" value="Login" /> <h:inputText
-			id="login" value="#{createuser.login }" /></div>
+			id="login" value="#{createuser.login }">
+			<f:validateRequired for="login"/>
+			</h:inputText></div>
+		<h:message for="login" style="display:block" errorStyle="color:red" />
+		</div>
 		<div><h:outputLabel value="password" /> <h:inputSecret
 			value="#{createuser.password }" /></div>
 		<div><h:outputLabel value="Confirm Password" /> <h:inputSecret
@@ -28,18 +33,18 @@
 		<div><h:commandButton value="Add"
 			action="#{authorization.login}" /></div>
 	</h:form>
-	<h:outputLabel value="#{createuser.login}"/>
-<!--	<div><h:dataTable var="user" value="${createuser.users}">-->
-<!--		<f:facet name="header">-->
-<!--			<h:outputText value="Users" />-->
-<!--		</f:facet>-->
-<!--		<h:column > -->
-<!--		<f:facet name="header">-->
-<!--		<h:outputLabel value="login"/>-->
-<!--		</f:facet>-->
-<!--		<h:outputLabel value="${user.login}"/>-->
-<!--		</h:column>-->
-<!--	</h:dataTable></div>-->
+	<h:outputLabel value="#{createuser.login}" />
+	<div><h:dataTable var="user" value="${createuser.users}">
+		<f:facet name="header">
+			<h:outputText value="Users" />
+		</f:facet>
+		<h:column>
+			<f:facet name="header">
+				<h:outputLabel value="login" />
+			</f:facet>
+			<h:outputLabel value="${user.login}" />
+		</h:column>
+	</h:dataTable></div>
 </f:view>
 </body>
 </html>
