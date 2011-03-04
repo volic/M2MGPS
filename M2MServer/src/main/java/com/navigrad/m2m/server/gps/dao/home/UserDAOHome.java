@@ -15,26 +15,26 @@ public class UserDAOHome extends AbstractDAOHome<User> implements IUserDAO {
 	protected Class<User> getDomainEntityClass() {
 		return User.class;
 	}
-	
+
 	@Override
 	public List<User> findUsers() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		List<User> users = session.createQuery(
-		"from User ").list();
+		@SuppressWarnings("unchecked")
+		List<User> users = session.createQuery("from User ").list();
 		for (User user : users) {
 			Hibernate.initialize(user);
 		}
 		session.getTransaction().commit();
 		return users;
 	}
-	
+
 	@Override
 	public User findUserByLogin(String login) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		User user = (User) session.createQuery(
-		"from User as user where user.login = " + login).uniqueResult();
+				"from User as user where user.login = " + login).uniqueResult();
 		session.getTransaction().commit();
 		return user;
 	}
