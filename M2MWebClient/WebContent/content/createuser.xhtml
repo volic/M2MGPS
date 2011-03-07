@@ -31,15 +31,33 @@
 			value="#{createuser.lastName }" /></div>
 		</div>
 		<div><h:commandButton value="Add"
-			action="#{authorization.login}" /></div>
+			action="#{createuser.createNewUser}" /></div>
 	</h:form>
+<<<<<<< HEAD
+=======
 	<h:outputLabel value="#{createuser.login}" />
+>>>>>>> aa72b86bf5ad71e7768777bb36731fb6d8163ede
 	<div><h:dataTable var="user" value="${createuser.users}">
 		<f:facet name="header">
 			<h:outputText value="Users" />
 		</f:facet>
 		<h:column>
 			<f:facet name="header">
+<<<<<<< HEAD
+				<h:outputLabel value="First Name" />
+			</f:facet>
+			<h:outputLabel value="${user.firstName}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputLabel value="Last Name" />
+			</f:facet>
+			<h:outputLabel value="${user.lastName}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+=======
+>>>>>>> aa72b86bf5ad71e7768777bb36731fb6d8163ede
 				<h:outputLabel value="login" />
 			</f:facet>
 			<h:outputLabel value="${user.login}" />

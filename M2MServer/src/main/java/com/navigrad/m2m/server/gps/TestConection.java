@@ -33,7 +33,8 @@ public class TestConection {
 		List<User> savedUsers = testConection.getUserDAO().findUsers();
 		System.out.println(savedUsers);
 
-		// System.out.println(new UserDAOHome().getById(4l));
+		System.out.println("user: "
+				+ testConection.getUserDAO().findUserByLogin("volic"));
 
 		// add
 		// System.out.println(testConection.addTransport(savedUsers.get(3),
@@ -44,8 +45,8 @@ public class TestConection {
 		System.out.println(savedTransports);
 
 		// add
-//		System.out.println(testConection.addGPSData(savedTransports.get(4),
-//				Calendar.getInstance().getTime(), 540.5640, 0564.0, 0564.46));
+		// System.out.println(testConection.addGPSData(savedTransports.get(4),
+		// Calendar.getInstance().getTime(), 540.5640, 0564.0, 0564.46));
 
 		List<GPSData> savedGpsData = testConection.getGpsDAO().findGPSs();
 		System.out.println(savedGpsData);

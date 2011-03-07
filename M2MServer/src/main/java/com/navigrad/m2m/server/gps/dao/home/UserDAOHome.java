@@ -34,7 +34,7 @@ public class UserDAOHome extends AbstractDAOHome<User> implements IUserDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		User user = (User) session.createQuery(
-				"from User as user where user.login = " + login).uniqueResult();
+		"from User as user where user.login = ?").setString(0, login).uniqueResult();
 		session.getTransaction().commit();
 		return user;
 	}
