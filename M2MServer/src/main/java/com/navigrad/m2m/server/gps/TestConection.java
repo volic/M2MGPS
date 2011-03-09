@@ -4,6 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -29,7 +32,7 @@ public class TestConection {
 		// add
 		// System.out.println(testConection.addUser("Николай", "Волынец",
 		// null));
-
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		List<User> savedUsers = testConection.getUserDAO().findUsers();
 		System.out.println(savedUsers);
 

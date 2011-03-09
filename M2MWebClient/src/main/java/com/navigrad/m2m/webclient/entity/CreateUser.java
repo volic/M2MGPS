@@ -1,10 +1,21 @@
 package com.navigrad.m2m.webclient.entity;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import javax.validation.constraints.Size;
+import javax.validation.metadata.BeanDescriptor;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.navigrad.m2m.server.annotation.Equal;
 import com.navigrad.m2m.server.gps.entity.User;
 import com.navigrad.m2m.server.gps.servises.UserServise;
 import com.navigrad.m2m.webclient.validate.CreateUserValidator;
@@ -13,20 +24,40 @@ import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 @SessionScoped
 public class CreateUser {
 
+	@NotEmpty
 	private String login;
 	private String firstName;
 	private String lastName;
+	@Size(min = 4)
+	@NotEmpty
 	private String password;
+	@Equal(propertyName = "password")
 	private String confirmPassword;
+	@Size(min = 1, message = "You must fill login field")
 	private String email;
 	private String passwordError;
 	private String loginError;
 	private String firstNameError;
 	private String lastNameError;
 	private String confirmPasswordError;
+	private List<User> users = new ArrayList<User>();
 
 	public String createNewUser() {
-
+		ValidatorFactory validatorFactory = Validation
+				.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<Class<CreateUser>>> result = validator
+				.validate(CreateUser.class);
+		if (result.isEmpty()) {
+			return "success";
+		} else {
+			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
+				System.out.println(constraintViolation.getPropertyPath()
+						.toString());
+				{
+				}
+			}
+		}
 		passwordError = CreateUserValidator.checkPassword(password);
 		if (!password.equals(confirmPassword)) {
 			confirmPasswordError = "Psswords didn't match";
@@ -88,8 +119,9 @@ public class CreateUser {
 		return passwordError;
 	}
 
-	List<User> getUsers(){
-		return UserServise.getSavedUsers();
+	public List<User> getUsers() {
+		users = UserServise.getSavedUsers();
+		return users;
 	}
 
 	public void setConfirmPassword(String confirmPassword) {
@@ -111,8 +143,12 @@ public class CreateUser {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 }
