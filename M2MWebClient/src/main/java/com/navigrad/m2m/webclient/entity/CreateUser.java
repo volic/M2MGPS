@@ -43,21 +43,21 @@ public class CreateUser {
 	private List<User> users = new ArrayList<User>();
 
 	public String createNewUser() {
-		ValidatorFactory validatorFactory = Validation
-				.buildDefaultValidatorFactory();
-		Validator validator = validatorFactory.getValidator();
-		Set<ConstraintViolation<Class<CreateUser>>> result = validator
-				.validate(CreateUser.class);
-		if (result.isEmpty()) {
-			return "success";
-		} else {
-			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
-				System.out.println(constraintViolation.getPropertyPath()
-						.toString());
-				{
-				}
-			}
-		}
+//		ValidatorFactory validatorFactory = Validation
+//				.buildDefaultValidatorFactory();
+//		Validator validator = validatorFactory.getValidator();
+//		Set<ConstraintViolation<Class<CreateUser>>> result = validator
+//				.validate(CreateUser.class);
+//		if (result.isEmpty()) {
+//			return "success";
+//		} else {
+//			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
+//				System.out.println(constraintViolation.getPropertyPath()
+//						.toString());
+//				{
+//				}
+//			}
+//		}
 		passwordError = CreateUserValidator.checkPassword(password);
 		if (!password.equals(confirmPassword)) {
 			confirmPasswordError = "Psswords didn't match";
