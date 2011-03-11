@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12982908692680" configfile="/M2MWebClient/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="36" y="48" id="pf12997700610606" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf12997700610607 pf129977112416714 pf129977114826616 pf129977115318320" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="36" y="48" id="pf12997700610606" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf12997700610607 pf129977112416714 pf129977114826616 pf129977115318320 pf12998559033000" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="content/authorization.html" x="228" y="31" id="pf12997700610609" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf12997700610607" path="/content/authorization.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="content/createuser.html" id="pf129977112416715" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf129977112416714" path="/content/createuser.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="templ/page.xhtml" id="pf129977114826718" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf129977114826616" path="/templ/page.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="content/menu.xhtml" id="pf129977115318321" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf129977115318320" path="/content/menu.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/menu.xhtml" x="144" y="192" id="pf129977115318321" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf129977115318320" path="/content/menu.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf12998559033001" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf12998559033000" path="/index.xhtml"/>
   <links id="pf12997700610607" target="pf12997700610609" source="pf12997700610606" outcome="authorization"/>
-  <links id="pf129977112416714" target="pf129977112416715" source="pf12997700610606" outcome="createuser"/>
+  <links id="pf129977112416714" target="pf129977112416715" source="pf12997700610606" outcome="createUser"/>
   <links id="pf129977114826616" target="pf129977114826718" source="pf12997700610606" outcome="page"/>
   <links id="pf129977115318320" target="pf129977115318321" source="pf12997700610606" outcome="menu"/>
+  <links id="pf12998559033000" target="pf12998559033001" source="pf12997700610606" outcome="home"/>
 </pageflow:Pageflow>

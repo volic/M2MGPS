@@ -1,26 +1,26 @@
 package com.navigrad.m2m.webclient.controller.template;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean
+@ManagedBean(name = "menuController")
 @SessionScoped
 public class MenuController {
 
-//	private String createUser;
-//	private String authorization;
-//	private String home;
+	private List<Menu> menuItems = new ArrayList<Menu>();
 
-	public String getCreateUser() {
-		return "createUser";
+	public List<Menu> getMenuItems() {
+		menuItems = Arrays.asList(Menu.values());
+		return menuItems;
 	}
 
-	public String getAuthorization() {
-		return "authorization";
+	public void setMenuItems(List<Menu> menuItems) {
+		this.menuItems = menuItems;
 	}
 
-	public String getHome() {
-		return "home";
-	}
-
+	
 }

@@ -11,16 +11,14 @@
 <body>
 	<ui:composition>
 		<div>Menu</div>
-		<div style="width: 150px; float: left;">
-			<h:commandLink action="${menu.home}" value="authorization"/>
-		</div>
-		<div style="width: 150px; float: left;">
-			<h:commandLink action="${menu.authorization}" value="authorization"/>
-		</div>
-		<div style="width: 150px; float: left;">
-			<h:commandLink action="${menu.createUser}"/>
-		</div>
-		<div style="clear: both;"/>
+		<h:form>
+			<ui:repeat var="menu" value="#{menuController.menuItems}">
+				<div class="#{menu.styleClass}" style="border: 2px black solid;">
+					<h:commandLink action="#{menu.action}" value="#{menu.title}" />
+				</div>
+			</ui:repeat>
+		</h:form>
+		<div style="clear: both;" />
 	</ui:composition>
 </body>
 </html>
