@@ -7,22 +7,13 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Wellcome</title>
+<title>Header</title>
 </head>
 <h:body>
-	<ui:composition template="/template/headerpage.xhtml">
-		
-
-		<ui:define name="content">
-			Контент
+	<ui:composition template="/template/basepage.xhtml">
+		<ui:define name="header">
+			<ui:include src="/template/component/menu.xhtml"></ui:include>
 		</ui:define>
-		<ui:define name="sidebar">
-            Сайдбар 
-        </ui:define>
-
-		<ui:define name="footer">
-            Facelets &copy;
-        </ui:define>
 	</ui:composition>
 </h:body>
 </html>

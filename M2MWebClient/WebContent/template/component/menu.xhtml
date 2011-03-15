@@ -13,7 +13,7 @@
 		<div>Menu</div>
 		<h:form>
 			<ui:repeat var="menu" value="#{menuController.menuItems}">
-				<div class="#{menu.styleClass}" style="border: 2px black solid;">
+				<div class="menu #{menu.styleClass} #{}" style="">
 					<h:commandLink action="#{menu.action}" value="#{menu.title}" />
 				</div>
 			</ui:repeat>

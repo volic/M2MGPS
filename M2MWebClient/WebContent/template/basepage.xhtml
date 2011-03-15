@@ -6,16 +6,16 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<h:outputStylesheet library="styles" name="style.css" />
+	<h:outputStylesheet library="styles" name="/resources/stylesheets/style.css" />
 	<!--[if lte IE 6]><h:outputStylesheet library="styles" name="style_ie.css"/><![endif]-->
 	<title><ui:insert name="title">Title name</ui:insert></title>
 </h:head>
 
 <h:body>
+	<h:outputStylesheet library="stylesheets" name="style.css" />
 	<div id="wrapper">
 
 		<div id="header">
-			<ui:include src="/content/menu.xhtml"/>
 			<ui:insert name="header">Header Section</ui:insert>
 		</div>
 		<!-- #header-->
@@ -42,7 +42,7 @@
 	<!-- #wrapper -->
 
 	<div id="footer">
-		<ui:insert name="footer">Header Section</ui:insert>
+		<ui:insert name="footer">Footer Section</ui:insert>
 	</div>
 	<!-- #footer -->
 </h:body>
