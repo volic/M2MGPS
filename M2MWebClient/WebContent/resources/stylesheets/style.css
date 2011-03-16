@@ -1,0 +1,13 @@
+div {
+	
+}
+
+div.menu {
+	background: aqua;
+	width: 150px;
+	float: left;
+	border: 1px black solid;
+}
+div.selected {
+	background: yellow;
+}
