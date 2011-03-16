@@ -4,6 +4,8 @@
   <artifactId>M2MServer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   	<build>
+  		<sourceDirectory>src/main/java</sourceDirectory>
+  		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -117,6 +119,23 @@
 			<version>2.0.8</version>
 			<type>jar</type>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.quickserver</groupId>
+			<artifactId>org.quickserver</artifactId>
+			<version>1.4.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}\lib\QuickServer1.4.7\dist\QuickServer.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.0.2.GA</version>
 		</dependency>
 	</dependencies>
 	<parent>
