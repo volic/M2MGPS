@@ -17,6 +17,11 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-resource-dependency-plugin</artifactId> -->
+<!-- 				<groupId>org.richfaces.cdk</groupId> -->
+<!-- 				<version>3.3.1-SNAPSHOT</version> -->
+<!-- 			</plugin> -->
 		</plugins>
 	</build>
 	<dependencies>
@@ -73,12 +78,48 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.0.2.GA</version>
 		</dependency>
+		<!-- RichFaces libraries -->
+			<dependency>
+				<groupId>org.richfaces.ui</groupId>
+				<artifactId>richfaces-ui</artifactId>
+				<version>3.3.1.GA</version>
+			</dependency>
+			<dependency>
+				<groupId>org.richfaces.framework</groupId>
+				<artifactId>richfaces-api</artifactId>
+				<version>3.3.1.GA</version>
+				<type>pom</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.richfaces.framework</groupId>
+				<artifactId>richfaces-impl</artifactId>
+				<version>3.3.1.GA</version>
+				<type>pom</type>
+				<scope>compile</scope>
+			</dependency>
 	</dependencies>
 	<repositories>
+
+		<!-- JBoss RichFaces Repository -->
+		
 		<repository>
 			<id>java.net.m2</id>
 			<name>java.net m2 repo</name>
 			<url>http://download.java.net/maven/2</url>
+		</repository>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+			<id>repository.jboss.com</id>
+			<name>Jboss Repository for Maven</name>
+			<url> http://repository.jboss.com/maven2/</url>
+			<layout>default</layout>
 		</repository>
 	</repositories>
 	<parent>

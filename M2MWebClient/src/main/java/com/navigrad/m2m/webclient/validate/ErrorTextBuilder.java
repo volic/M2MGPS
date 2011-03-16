@@ -10,8 +10,8 @@ public class ErrorTextBuilder {
 	//
 	private static Map<ValidatorEror, String> errorMap = new HashMap<ValidatorEror, String>();
 
-	private ValidatorResult result;
-	private String errorText;
+//	private ValidatorResult result;
+//	private String errorText;
 
 	static {
 		errorMap.put(ValidatorEror.EMPTY_STRING, EMPTY);
