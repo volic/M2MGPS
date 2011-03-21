@@ -1,46 +1,25 @@
 package com.navigrad.m2m.webclient.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-import javax.validation.constraints.Size;
-import javax.validation.metadata.BeanDescriptor;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
-import com.navigrad.m2m.server.annotation.Equal;
-import com.navigrad.m2m.server.gps.entity.User;
-import com.navigrad.m2m.server.gps.servises.UserServise;
-import com.navigrad.m2m.webclient.validate.CreateUserValidator;
-
-@ManagedBean(name = "createuser")
-@SessionScoped
 public class CreateUser {
 
-	@NotEmpty
+//	@NotEmpty
 	private String login;
 	private String firstName;
 	private String lastName;
-	@Size(min = 4)
-	@NotEmpty
+//	@Size(min = 4)
+//	@NotEmpty
 	private String password;
-	@Equal(propertyName = "password")
+//	@Equal(propertyName = "password")
 	private String confirmPassword;
-	@Size(min = 1, message = "You must fill login field")
+//	@Size(min = 1, message = "You must fill login field")
 	private String email;
 	private String passwordError;
 	private String loginError;
 	private String firstNameError;
 	private String lastNameError;
 	private String confirmPasswordError;
-	private List<User> users = new ArrayList<User>();
+//	private List<User> users = new ArrayList<User>();
 
 	public String createNewUser() {
 //		ValidatorFactory validatorFactory = Validation
@@ -58,19 +37,19 @@ public class CreateUser {
 //				}
 //			}
 //		}
-		passwordError = CreateUserValidator.checkPassword(password);
-		if (!password.equals(confirmPassword)) {
-			confirmPasswordError = "Psswords didn't match";
-		}
-		loginError = CreateUserValidator.checkTextField("Login", login);
-		firstNameError = CreateUserValidator.checkTextField("First name",
-				firstName);
-		lastNameError = CreateUserValidator.checkTextField("Last name",
-				lastName);
-		if (passwordError != null || loginError != null
-				|| firstNameError != null || lastNameError != null)
-			return "error";
-		new UserServise().saveUser(login, password, firstName, lastName, email);
+//		passwordError = CreateUserValidator.checkPassword(password);
+//		if (!password.equals(confirmPassword)) {
+//			confirmPasswordError = "Psswords didn't match";
+//		}
+//		loginError = CreateUserValidator.checkTextField("Login", login);
+//		firstNameError = CreateUserValidator.checkTextField("First name",
+//				firstName);
+//		lastNameError = CreateUserValidator.checkTextField("Last name",
+//				lastName);
+//		if (passwordError != null || loginError != null
+//				|| firstNameError != null || lastNameError != null)
+//			return "error";
+//		new UserServise().saveUser(login, password, firstName, lastName, email);
 		return "success";
 
 	}
@@ -119,10 +98,10 @@ public class CreateUser {
 		return passwordError;
 	}
 
-	public List<User> getUsers() {
-		users = UserServise.getSavedUsers();
-		return users;
-	}
+//	public List<User> getUsers() {
+//		users = UserServise.getSavedUsers();
+//		return users;
+//	}
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
@@ -148,7 +127,7 @@ public class CreateUser {
 		this.password = password;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+//	public void setUsers(List<User> users) {
+//		this.users = users;
+//	}
 }

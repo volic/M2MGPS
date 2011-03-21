@@ -1,8 +1,6 @@
 package com.navigrad.m2m.webclient.entity;
 
-import javax.faces.bean.ManagedBean;
 
-@ManagedBean
 public class Authorization {
 
 	private String login;

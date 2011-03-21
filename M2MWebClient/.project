@@ -3,7 +3,6 @@
 	<name>M2MWebClient</name>
 	<comment></comment>
 	<projects>
-		<project>M2MServer</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
