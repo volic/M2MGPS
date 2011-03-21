@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
 public class MenuController {
 
 	private List<Menu> menuItems = new ArrayList<Menu>();

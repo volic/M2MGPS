@@ -22,14 +22,4 @@
 			<to-view-id>/content/menu.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<managed-bean>
-		<managed-bean-name>createUser</managed-bean-name>
-		<managed-bean-class>com.navigrad.m2m.webclient.entity.CreateUser</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>menuController</managed-bean-name>
-		<managed-bean-class>com.navigrad.m2m.webclient.controller.template.MenuController</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
 </faces-config>
