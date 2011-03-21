@@ -15,7 +15,7 @@
 		<div>Menu</div>
 		<h:form>
 			<ui:repeat var="menu" value="#{menuController.menuItems}">
-				<div class="menu #{menu.styleClass} #{}" style="">
+				<div class="menu #{menu.styleClass} " style="">
 					<h:commandLink action="#{menu.action}" value="#{menu.title}" />
 				</div>
 			</ui:repeat>
