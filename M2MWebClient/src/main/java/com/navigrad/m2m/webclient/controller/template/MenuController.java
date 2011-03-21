@@ -7,6 +7,7 @@ import java.util.List;
 public class MenuController {
 
 	private List<Menu> menuItems = new ArrayList<Menu>();
+	private String activePage;
 
 	public List<Menu> getMenuItems() {
 		menuItems = Arrays.asList(Menu.values());
@@ -17,5 +18,12 @@ public class MenuController {
 		this.menuItems = menuItems;
 	}
 
-	
+	public String getActivePage() {
+		return activePage;
+	}
+
+	public void setActivePage(String activePage) {
+		this.activePage = activePage;
+	}
+
 }

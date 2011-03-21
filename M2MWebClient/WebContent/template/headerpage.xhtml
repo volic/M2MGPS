@@ -5,23 +5,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Authorization</title>
+<title>Header</title>
 </head>
-<body>
-	<ui:composition template="/template/headerpage.xhtml">
-		<ui:define name="content">
-			<h:form>
-				<h:outputLabel value="Login" />
-				<h:inputText value="#{authorization.login }" />
-				<h:outputLabel value="Password" />
-				<h:inputText value="#{authorization.password }" />
-				<h:commandButton value="Enter" />
-			</h:form>
+<h:body>
+	<ui:composition template="/template/basepage.xhtml">
+		<ui:define name="header">
+			<ui:include src="/template/component/menu.xhtml"></ui:include>
 		</ui:define>
 	</ui:composition>
-
-</body>
+</h:body>
 </html>
