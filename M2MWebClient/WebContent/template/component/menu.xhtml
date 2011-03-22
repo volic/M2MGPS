@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Insert title here</title>
@@ -13,12 +14,13 @@
 		<div>Menu</div>
 		<h:form>
 			<ui:repeat var="menu" value="#{menuController.menuItems}">
-				<div class="menu #{menu.styleClass} #{}" style="">
+				<div class="menu #{menu.styleClass} " style="">
 					<h:commandLink action="#{menu.action}" value="#{menu.title}" />
 				</div>
 			</ui:repeat>
 		</h:form>
 		<div style="clear: both;" />
+		<div></div>
 	</ui:composition>
 </body>
 </html>

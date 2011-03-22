@@ -11,16 +11,14 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import javax.validation.constraints.Size;
-import javax.validation.metadata.BeanDescriptor;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.navigrad.m2m.server.annotation.Equal;
 import com.navigrad.m2m.server.gps.entity.User;
 import com.navigrad.m2m.server.gps.servises.UserServise;
 import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 
-@ManagedBean(name = "createuser")
+@ManagedBean
 @SessionScoped
 public class CreateUser {
 
@@ -31,7 +29,7 @@ public class CreateUser {
 	@Size(min = 4)
 	@NotEmpty
 	private String password;
-	@Equal(propertyName = "password")
+	// @Equal(propertyName = "password")
 	private String confirmPassword;
 	@Size(min = 1, message = "You must fill login field")
 	private String email;
@@ -40,24 +38,25 @@ public class CreateUser {
 	private String firstNameError;
 	private String lastNameError;
 	private String confirmPasswordError;
+
 	private List<User> users = new ArrayList<User>();
 
 	public String createNewUser() {
-//		ValidatorFactory validatorFactory = Validation
-//				.buildDefaultValidatorFactory();
-//		Validator validator = validatorFactory.getValidator();
-//		Set<ConstraintViolation<Class<CreateUser>>> result = validator
-//				.validate(CreateUser.class);
-//		if (result.isEmpty()) {
-//			return "success";
-//		} else {
-//			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
-//				System.out.println(constraintViolation.getPropertyPath()
-//						.toString());
-//				{
-//				}
-//			}
-//		}
+		ValidatorFactory validatorFactory = Validation
+				.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<Class<CreateUser>>> result = validator
+				.validate(CreateUser.class);
+		if (result.isEmpty()) {
+			return "success";
+		} else {
+			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
+				System.out.println(constraintViolation.getPropertyPath()
+						.toString());
+				{
+				}
+			}
+		}
 		passwordError = CreateUserValidator.checkPassword(password);
 		if (!password.equals(confirmPassword)) {
 			confirmPasswordError = "Psswords didn't match";

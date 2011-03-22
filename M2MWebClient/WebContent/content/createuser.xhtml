@@ -4,12 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>New User</title>
 </head>
 <body>
+
 	<ui:composition template="/template/headerpage.xhtml">
 		<ui:define name="content">
 			<div>Add User</div>
@@ -19,7 +21,7 @@
 					<div>
 						<div>
 							<h:outputLabel for="login" value="Login" />
-							<h:inputText id="login" value="#{createuser.login }">
+							<h:inputText id="login" value="#{createUser.login }">
 							</h:inputText>
 						</div>
 						<h:message for="login" style="display:block"
@@ -27,7 +29,7 @@
 					</div>
 					<div>
 						<h:outputLabel value="password" />
-						<h:inputSecret id="password" value="#{createuser.password }">
+						<h:inputSecret id="password" value="#{createUser.password }">
 						</h:inputSecret>
 						<h:message for="password" />
 					</div>
@@ -35,28 +37,28 @@
 					<div>
 						<h:outputLabel value="Confirm Password" />
 						<h:inputSecret id="confirmPassword"
-							value="#{createuser.confirmPassword }" />
+							value="#{createUser.confirmPassword }" />
 						<h:message for="confirmPassword" />
 					</div>
 					<div>
 						<h:outputLabel for="first_name" value="First Name" />
-						<h:inputText id="firstName" value="#{createuser.firstName }" />
+						<h:inputText id="firstName" value="#{createUser.firstName }" />
 						<h:message for="firstName" />
 					</div>
 					<h:message for="first_name"></h:message>
 					<div>
 						<h:outputLabel value="Last Name" />
-						<h:inputText id="lastName" value="#{createuser.lastName }" />
+						<h:inputText id="lastName" value="#{createUser.lastName }" />
 						<h:message for="lastName" />
 					</div>
 				</div>
 				<div>
-					<h:commandButton value="Add" action="#{createuser.createNewUser}" />
+					<h:commandButton value="Add" action="#{createUser.createNewUser}" />
 				</div>
 
 			</h:form>
 			<div>
-				<h:dataTable var="user" value="${createuser.users}">
+				<rich:dataTable var="user" value="${createUser.users}">
 					<f:facet name="header">
 						<h:outputText value="Users" />
 					</f:facet>
@@ -78,7 +80,7 @@
 						</f:facet>
 						<h:outputLabel value="${user.login}" />
 					</h:column>
-				</h:dataTable>
+				</rich:dataTable>
 			</div>
 		</ui:define>
 	</ui:composition>
