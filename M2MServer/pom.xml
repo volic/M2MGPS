@@ -1,23 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.navigrad</groupId>
-  <artifactId>M2MServer</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  	<build>
-  		<sourceDirectory>src/main/java</sourceDirectory>
-  		<testOutputDirectory>target/test-classes</testOutputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${app.groupId}</groupId>
+	<artifactId>M2MServer</artifactId>
+	<version>${app.version}</version>
+<!-- 	<packaging>ear</packaging> -->
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>net.sf.maven-har</groupId> -->
+<!-- 				<artifactId>maven-har-plugin</artifactId> -->
+<!-- 				<version>1.0</version> -->
+<!-- 			</plugin> -->
+<!-- 		</plugins> -->
 	</build>
+	<parent>
+		<groupId>${app.groupId}</groupId>
+		<artifactId>M2MGPS</artifactId>
+		<version>${app.version}</version>
+	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -42,8 +45,8 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>antlr</artifactId>
@@ -138,9 +141,5 @@
 			<version>4.0.2.GA</version>
 		</dependency>
 	</dependencies>
-	<parent>
-		<groupId>com.navigrad</groupId>
-		<artifactId>M2MGPS</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+
 </project>
