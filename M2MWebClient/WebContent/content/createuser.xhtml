@@ -6,21 +6,20 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:rich="http://richfaces.org/rich">
-<head>
+<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>New User</title>
-</head>
-<body>
+</h:head>
+<h:body>
 
 	<ui:composition template="/template/headerpage.xhtml">
 		<ui:define name="content">
 			<div>Add User</div>
 			<h:form>
-
 				<div>
 					<div>
 						<div>
-							<h:outputLabel for="login" value="Login" />
+							<h:outputLabel styleClass="label" for="login" value="Login" />
 							<h:inputText id="login" value="#{createUser.login }">
 							</h:inputText>
 						</div>
@@ -84,5 +83,5 @@
 			</div>
 		</ui:define>
 	</ui:composition>
-</body>
+</h:body>
 </html>

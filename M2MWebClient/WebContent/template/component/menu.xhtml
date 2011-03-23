@@ -4,23 +4,28 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	>
+	xmlns:rich="http://richfaces.org/rich">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+
 </head>
-<body>
-	<ui:composition>
-		<div>Menu</div>
-		<h:form>
-			<ui:repeat var="menu" value="#{menuController.menuItems}">
-				<div class="menu #{menu.styleClass} " style="">
-					<h:commandLink action="#{menu.action}" value="#{menu.title}" />
-				</div>
-			</ui:repeat>
-		</h:form>
-		<div style="clear: both;" />
-		<div></div>
-	</ui:composition>
-</body>
+<ui:composition>
+	<div>Menu</div>
+	<h:form>
+		<div>
+			<rich:panelMenu>
+				<ui:repeat var="menu" value="#{menuController.menuItems}">
+					<rich:menuItem styleClass="menu #{menu.styleClass}" action="#{menu.action}">"#{menu.title}"</rich:menuItem>
+				</ui:repeat>
+			</rich:panelMenu>
+		</div>
+<!-- 		<ui:repeat var="menu" value="#{menuController.menuItems}"> -->
+<!-- 			<div class="menu #{menu.styleClass} " style=""> -->
+<!-- 				<h:commandLink action="#{menu.action}" value="#{menu.title}" /> -->
+
+<!-- 			</div> -->
+<!-- 		</ui:repeat> -->
+	</h:form>
+	<div style="clear: both;" />
+	<div></div>
+</ui:composition>
 </html>
