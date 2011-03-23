@@ -47,8 +47,10 @@ public class CreateUser {
 		Validator validator = validatorFactory.getValidator();
 		Set<ConstraintViolation<Class<CreateUser>>> result = validator
 				.validate(CreateUser.class);
+		
 		if (result.isEmpty()) {
-			return "success";
+			throw new NullPointerException();
+//			return "success";
 		} else {
 			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
 				System.out.println(constraintViolation.getPropertyPath()
@@ -70,6 +72,7 @@ public class CreateUser {
 				|| firstNameError != null || lastNameError != null)
 			return "error";
 		new UserServise().saveUser(login, password, firstName, lastName, email);
+		
 		return "success";
 
 	}

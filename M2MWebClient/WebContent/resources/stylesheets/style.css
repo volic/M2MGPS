@@ -4,8 +4,8 @@ html {
 
 body {
 	background: url("../resources/images/background.png");
-	padding: 0;
-	margin: 0 auto;
+	padding: 0px;
+	margin: 0px auto;
 	font-family: Arial, Helvetica, sans-serif;
 	height: 100%;
 	width: 1024px;
@@ -20,6 +20,7 @@ div.menu {
 	margin-right: 3%;
 	float: left;
 	border: 1px black solid;
+	padding: 0px;
 }
 
 div.selected {
