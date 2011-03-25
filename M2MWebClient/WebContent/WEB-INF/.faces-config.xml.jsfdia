@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#content#home.xhtml" NAME="output"
+    PATH="/content/home.xhtml" TARGET="rules:#content#home.xhtml"
+    TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="authorization::#content#authorization.xhtml"
+    NAME="output1" PATH="/content/authorization.xhtml"
+    TARGET="rules:#content#authorization.xhtml" TITLE="authorization" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="createUser::#content#createuser.xhtml"
+    NAME="output2" PATH="/content/createuser.xhtml"
+    TARGET="rules:#content#createuser.xhtml" TITLE="createUser" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="menu::#content#menu.xhtml" NAME="output3"
+    PATH="/content/menu.xhtml" TARGET="rules:#content#menu.xhtml"
+    TITLE="menu" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="test::#content#test.xhtml" NAME="output4"
+    PATH="/content/test.xhtml" TARGET="rules:#content#test.xhtml"
+    TITLE="test" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#content#home.xhtml"
+  PATH="/content/home.xhtml" SHAPE="288,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#content#menu.xhtml"
+  PATH="/content/menu.xhtml" SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#content#authorization.xhtml"
+  PATH="/content/authorization.xhtml" SHAPE="288,241,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#content#createuser.xhtml"
+  PATH="/content/createuser.xhtml" SHAPE="288,353,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#content#test.xhtml"
+  PATH="/content/test.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

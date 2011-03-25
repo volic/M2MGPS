@@ -6,24 +6,26 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<h:outputStylesheet library="styles" name="/resources/stylesheets/style.css" />
+	<h:outputStylesheet library="styles"
+		name="/resources/stylesheets/style.css" />
 	<!--[if lte IE 6]><h:outputStylesheet library="styles" name="style_ie.css"/><![endif]-->
-	<title><ui:insert name="title">Title name</ui:insert></title>
+	<title><ui:insert name="title">Title name</ui:insert>
+	</title>
 </h:head>
 
 <h:body>
 	<h:outputStylesheet library="stylesheets" name="style.css" />
-	<div id="wrapper">
-
+	<div class="background"></div>
+	<div id="wrapper" class="content">
 		<div id="header">
 			<ui:insert name="header">Header Section</ui:insert>
 		</div>
 		<!-- #header-->
 
-		<div id="middle">
+		<div id="middle" class="content">
 
-			<div id="container">
-				<div id="content">
+			<div id="container" class="content">
+				<div id="content" class="content">
 					<ui:insert name="content">Main Content</ui:insert>
 				</div>
 				<!-- #content-->
@@ -40,7 +42,6 @@
 
 	</div>
 	<!-- #wrapper -->
-
 	<div id="footer">
 		<ui:insert name="footer">Footer Section</ui:insert>
 	</div>

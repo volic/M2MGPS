@@ -4,39 +4,66 @@ html {
 
 body {
 	background: url("../resources/images/background.png");
-	padding: 0px;
-	margin: 0px auto;
 	font-family: Arial, Helvetica, sans-serif;
-	height: 100%;
-	width: 1024px;
 	font-size: 12px;
-	/*overflow: hidden;*/
+	height: 100%;
+}
+
+* {
+	border-color: #64c0c1;
+	padding: 0px;
+	margin: 0px auto 0px;
+	padding: 0px;
+}
+
+#wrapper,#header,#footer {
+	width: 1024px;
 }
 
 div.menu {
-	width: 30%;
-	margin: 2px;
-	margin-left: 3%;
-	margin-right: 3%;
+	width: 25%;
+	margin: 0px;
 	float: left;
 	border: 1px black solid;
 	padding: 0px;
+	font-size: 20px;
 }
 
-div.selected {
+.activeMenu {
 	background: yellow;
 }
 
 .label {
-	width: 150px;
+	float: left;
+	width: 200px;
 	padding: 2px;
 }
 
 input {
-	width: 150px;
+	width: 200px;
 	padding: 2px;
 }
 
-div.label {
-	
+#header {
+	background: url("../resources/images/background_header.png");
+	height: 120px;
+}
+
+#wrapper {
+	min-height: 100%;
+}
+
+#wrapper,#header,#footer {
+	border-style: solid;
+	border-width: 1px;
+}
+
+#content,#wrapper {
+	background-color: white;
+}
+
+#footer {
+	background: url("../resources/images/background_footer.png");
+	margin: -100px auto 0;
+	height: 100px;
 }

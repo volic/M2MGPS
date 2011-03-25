@@ -1,11 +1,11 @@
-package com.navigrad.m2m.webclient.entity;
+package com.navigrad.m2m.webclient.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -19,8 +19,8 @@ import com.navigrad.m2m.server.gps.servises.UserServise;
 import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 
 @ManagedBean
-@SessionScoped
-public class CreateUser {
+@RequestScoped
+public class CreateUserController {
 
 	@NotEmpty
 	private String login;
@@ -45,14 +45,14 @@ public class CreateUser {
 		ValidatorFactory validatorFactory = Validation
 				.buildDefaultValidatorFactory();
 		Validator validator = validatorFactory.getValidator();
-		Set<ConstraintViolation<Class<CreateUser>>> result = validator
-				.validate(CreateUser.class);
-		
+		Set<ConstraintViolation<Class<CreateUserController>>> result = validator
+				.validate(CreateUserController.class);
+
 		if (result.isEmpty()) {
 			throw new NullPointerException();
-//			return "success";
+			// return "success";
 		} else {
-			for (ConstraintViolation<Class<CreateUser>> constraintViolation : result) {
+			for (ConstraintViolation<Class<CreateUserController>> constraintViolation : result) {
 				System.out.println(constraintViolation.getPropertyPath()
 						.toString());
 				{
@@ -72,7 +72,7 @@ public class CreateUser {
 				|| firstNameError != null || lastNameError != null)
 			return "error";
 		new UserServise().saveUser(login, password, firstName, lastName, email);
-		
+
 		return "success";
 
 	}

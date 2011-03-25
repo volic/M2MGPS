@@ -1,87 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition template="/template/headerpage.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:rich="http://richfaces.org/rich">
-<h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>New User</title>
-</h:head>
-<h:body>
-
-	<ui:composition template="/template/headerpage.xhtml">
-		<ui:define name="content">
-			<div>Add User</div>
-			<h:form>
-				<div>
-					<div>
-						<div>
-							<h:outputLabel styleClass="label" for="login" value="Login" />
-							<h:inputText id="login" value="#{createUser.login }">
-							</h:inputText>
-						</div>
-						<h:message for="login" style="display:block"
-							errorStyle="color:red" />
-					</div>
-					<div>
-						<h:outputLabel value="password" />
-						<h:inputSecret id="password" value="#{createUser.password }">
-						</h:inputSecret>
-						<h:message for="password" />
-					</div>
-
-					<div>
-						<h:outputLabel value="Confirm Password" />
-						<h:inputSecret id="confirmPassword"
-							value="#{createUser.confirmPassword }" />
-						<h:message for="confirmPassword" />
-					</div>
-					<div>
-						<h:outputLabel for="first_name" value="First Name" />
-						<h:inputText id="firstName" value="#{createUser.firstName }" />
-						<h:message for="firstName" />
-					</div>
-					<h:message for="first_name"></h:message>
-					<div>
-						<h:outputLabel value="Last Name" />
-						<h:inputText id="lastName" value="#{createUser.lastName }" />
-						<h:message for="lastName" />
-					</div>
-				</div>
-				<div>
-					<h:commandButton value="Add" action="#{createUser.createNewUser}" />
-				</div>
-
-			</h:form>
+	<ui:define name="content">
+		<div>Add User</div>
+		<h:form>
 			<div>
-				<rich:dataTable var="user" value="${createUser.users}">
-					<f:facet name="header">
-						<h:outputText value="Users" />
-					</f:facet>
-					<h:column>
-						<f:facet name="header">
-							<h:outputLabel value="First Name" />
-						</f:facet>
-						<h:outputLabel value="${user.firstName}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputLabel value="Last Name" />
-						</f:facet>
-						<h:outputLabel value="${user.lastName}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputLabel value="login" />
-						</f:facet>
-						<h:outputLabel value="${user.login}" />
-					</h:column>
-				</rich:dataTable>
+				<div>
+					<div>
+						<h:outputLabel styleClass="label" for="login" value="Login" />
+						<h:inputText id="login" value="#{createUserController.login }">
+						</h:inputText>
+					</div>
+					<h:message for="login" style="display:block" errorStyle="color:red" />
+				</div>
+				<div>
+					<h:outputLabel styleClass="label" value="password" />
+					<h:inputSecret id="password"
+						value="#{createUserController.password }">
+					</h:inputSecret>
+					<h:message for="password" />
+				</div>
+
+				<div>
+					<h:outputLabel styleClass="label" value="Confirm Password" />
+					<h:inputSecret id="confirmPassword"
+						value="#{createUserController.confirmPassword }" />
+					<h:message for="confirmPassword" />
+				</div>
+				<div>
+					<h:outputLabel styleClass="label" for="first_name"
+						value="First Name" />
+					<h:inputText id="firstName"
+						value="#{createUserController.firstName }" />
+					<h:message for="firstName" />
+				</div>
+				<div>
+					<h:outputLabel styleClass="label" value="Last Name" />
+					<h:inputText id="lastName"
+						value="#{createUserController.lastName }" />
+					<h:message for="lastName" />
+				</div>
 			</div>
-		</ui:define>
-	</ui:composition>
-</h:body>
-</html>
+			<div>
+				<h:commandButton value="Add"
+					action="#{createUserController.createNewUser}" />
+			</div>
+
+		</h:form>
+		<div>
+			<rich:dataTable var="user" value="${createUserController.users}">
+				<f:facet name="header">
+					<h:outputText value="Users" />
+				</f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="First Name" />
+					</f:facet>
+					<h:outputLabel value="${user.firstName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Last Name" />
+					</f:facet>
+					<h:outputLabel value="${user.lastName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="login" />
+					</f:facet>
+					<h:outputLabel value="${user.login}" />
+				</h:column>
+			</rich:dataTable>
+		</div>
+	</ui:define>
+	<ui:define name="sidebar"></ui:define>
+</ui:composition>

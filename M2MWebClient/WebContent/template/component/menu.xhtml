@@ -4,27 +4,28 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:rich="http://richfaces.org/rich">
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <head>
 
 </head>
 <ui:composition>
-	<div>Menu</div>
-	<h:form>
-		<div>
-			<rich:panelMenu>
+	<div>active = #{menuController.activeMenuPage.action}
+		#{fn:length(menuController.menuItems)}</div>
+	<div>
+		<h:form id="mymenu">
+			<!-- 			<h:panelGrid columns="#{fn:length(menuController.menuItems)}" -->
+			<!-- 				width="100%"> -->
+			<div style="width: 100%">
 				<ui:repeat var="menu" value="#{menuController.menuItems}">
-					<rich:menuItem styleClass="menu #{menu.styleClass}" action="#{menu.action}">"#{menu.title}"</rich:menuItem>
+					<rich:menuItem
+						styleClass="menu #{menu.styleClass} #{menuController.activeMenuPage.action == menu.action ?'activeMenu':''}"
+						action="#{menu.action}" submitMode="Ajax">#{menu.title}</rich:menuItem>
 				</ui:repeat>
-			</rich:panelMenu>
-		</div>
-<!-- 		<ui:repeat var="menu" value="#{menuController.menuItems}"> -->
-<!-- 			<div class="menu #{menu.styleClass} " style=""> -->
-<!-- 				<h:commandLink action="#{menu.action}" value="#{menu.title}" /> -->
-
-<!-- 			</div> -->
-<!-- 		</ui:repeat> -->
-	</h:form>
+			</div>
+			<!-- 			</h:panelGrid> -->
+		</h:form>
+	</div>
 	<div style="clear: both;" />
 	<div></div>
 </ui:composition>

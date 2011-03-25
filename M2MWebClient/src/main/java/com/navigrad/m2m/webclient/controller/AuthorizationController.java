@@ -1,11 +1,11 @@
-package com.navigrad.m2m.webclient.entity;
+package com.navigrad.m2m.webclient.controller;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@SessionScoped
-public class Authorization {
+@RequestScoped
+public class AuthorizationController {
 
 	private String login;
 	private String password;
