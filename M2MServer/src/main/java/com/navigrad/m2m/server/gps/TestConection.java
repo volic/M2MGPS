@@ -30,8 +30,8 @@ public class TestConection {
 				.getBean("TestConection");
 
 		// add
-		// System.out.println(testConection.addUser("Николай", "Волынец",
-		// null));
+//		 System.out.println(testConection.addUser("Николай", "Волынец",
+//		 null));
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		List<User> savedUsers = testConection.getUserDAO().findUsers();
 		System.out.println(savedUsers);

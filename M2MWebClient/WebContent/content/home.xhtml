@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Wellcome</title>
@@ -13,7 +14,32 @@
 	<div>Wellcome</div>
 	<ui:composition template="/template/headerpage.xhtml">
 		<ui:define name="content">
-			M2M Home page
+			<div>M2M Home page</div>
+			<div>
+				<rich:dataTable var="user" value="${createUserController.users}">
+					<f:facet name="header">
+						<h:outputText value="Users" />
+					</f:facet>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="First Name" />
+						</f:facet>
+						<h:outputLabel value="${user.firstName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="Last Name" />
+						</f:facet>
+						<h:outputLabel value="${user.lastName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputLabel value="login" />
+						</f:facet>
+						<h:outputLabel value="${user.login}" />
+					</h:column>
+				</rich:dataTable>
+			</div>
 		</ui:define>
 		<ui:define name="sidebar">
 

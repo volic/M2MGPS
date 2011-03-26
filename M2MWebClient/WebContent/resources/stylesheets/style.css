@@ -21,12 +21,12 @@ body {
 }
 
 div.menu {
-	width: 25%;
+	width: 24.5%;
 	margin: 0px;
 	float: left;
 	border: 1px black solid;
 	padding: 0px;
-	font-size: 20px;
+	font-size: 14px;
 }
 
 .activeMenu {

@@ -16,9 +16,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.navigrad.m2m.server.gps.entity.User;
 import com.navigrad.m2m.server.gps.servises.UserServise;
+import com.navigrad.m2m.webclient.controller.template.Menu;
 import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 
-@ManagedBean
+@ManagedBean(name="createUserController" )
 @RequestScoped
 public class CreateUserController {
 
@@ -48,17 +49,17 @@ public class CreateUserController {
 		Set<ConstraintViolation<Class<CreateUserController>>> result = validator
 				.validate(CreateUserController.class);
 
-		if (result.isEmpty()) {
-			throw new NullPointerException();
-			// return "success";
-		} else {
-			for (ConstraintViolation<Class<CreateUserController>> constraintViolation : result) {
-				System.out.println(constraintViolation.getPropertyPath()
-						.toString());
-				{
-				}
-			}
-		}
+//		if (result.isEmpty()) {
+////			throw new NullPointerException();
+//			 return Menu.AUTHORIZATION.action();
+//		} else {
+//			for (ConstraintViolation<Class<CreateUserController>> constraintViolation : result) {
+//				System.out.println(constraintViolation.getPropertyPath()
+//						.toString());
+//				{
+//				}
+//			}
+//		}
 		passwordError = CreateUserValidator.checkPassword(password);
 		if (!password.equals(confirmPassword)) {
 			confirmPasswordError = "Psswords didn't match";
@@ -73,7 +74,7 @@ public class CreateUserController {
 			return "error";
 		new UserServise().saveUser(login, password, firstName, lastName, email);
 
-		return "success";
+		return Menu.HOME.action();
 
 	}
 

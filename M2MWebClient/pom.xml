@@ -118,8 +118,8 @@
 	</dependencies>
 
 	<parent>
-		<groupId>com.navigrad</groupId>
+		<groupId>${app.groupId}</groupId>
 		<artifactId>M2MGPS</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${app.version}</version>
 	</parent>
 </project>
