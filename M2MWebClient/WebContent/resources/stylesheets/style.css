@@ -49,6 +49,18 @@ input {
 	height: 120px;
 }
 
+#userLogIn {
+	float: right;
+	width: 200px;
+	border-style: solid;
+	border-width: 1px;
+	height: 50px;
+}
+.maxWidth{
+	float: left;
+	width: 100%;
+}
+
 #wrapper {
 	min-height: 100%;
 }

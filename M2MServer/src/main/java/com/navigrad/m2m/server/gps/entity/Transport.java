@@ -2,10 +2,8 @@ package com.navigrad.m2m.server.gps.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,10 +16,10 @@ import javax.persistence.Table;
 @Table(name = "transports")
 public class Transport extends AbstractEntity {
 
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+//	@Id
+//	@Column(name = "id")
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private Long id;
 
 	@Column(name = "name")
 	private String name;
@@ -29,20 +27,23 @@ public class Transport extends AbstractEntity {
 	@Column(name = "imei")
 	private String imei;
 
-	@ManyToOne(cascade = { CascadeType.REFRESH }, fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "users_id")
 	private User user;
 
 	@OneToMany(mappedBy = "transport")
 	private List<GPSData> gpsDatas;
 
+	@OneToMany(mappedBy = "transport")
+	private List<Track> tracks;
+
 	public List<GPSData> getGpsDatas() {
 		return gpsDatas;
 	}
 
-	public Long getId() {
-		return id;
-	}
+//	public Long getId() {
+//		return id;
+//	}
 
 	public String getImei() {
 		return imei;
@@ -60,9 +61,9 @@ public class Transport extends AbstractEntity {
 		this.gpsDatas = gpsDatas;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 
 	public void setImei(String imei) {
 		this.imei = imei;
@@ -74,6 +75,14 @@ public class Transport extends AbstractEntity {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Track> getTracks() {
+		return tracks;
+	}
+
+	public void setTracks(List<Track> tracks) {
+		this.tracks = tracks;
 	}
 
 	@Override

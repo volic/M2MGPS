@@ -8,15 +8,18 @@
    <PROCESS-ITEM-OUTPUT ID="authorization::#content#authorization.xhtml"
     NAME="output1" PATH="/content/authorization.xhtml"
     TARGET="rules:#content#authorization.xhtml" TITLE="authorization" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="createUser::#content#createuser.xhtml"
-    NAME="output2" PATH="/content/createuser.xhtml"
-    TARGET="rules:#content#createuser.xhtml" TITLE="createUser" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="menu::#content#menu.xhtml" NAME="output3"
     PATH="/content/menu.xhtml" TARGET="rules:#content#menu.xhtml"
     TITLE="menu" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="test::#content#test.xhtml" NAME="output4"
     PATH="/content/test.xhtml" TARGET="rules:#content#test.xhtml"
     TITLE="test" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="createUser::#content#createuser.xhtml"
+    NAME="output2" PATH="/content/createuser.xhtml"
+    TARGET="rules:#content#createuser.xhtml" TITLE="createUser" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="userList::#content#userlist.xhtml"
+    NAME="output5" PATH="/content/userlist.xhtml"
+    TARGET="rules:#content#userlist.xhtml" TITLE="userList" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#content#home.xhtml"
@@ -26,7 +29,19 @@
  <PROCESS-ITEM NAME="rules:#content#authorization.xhtml"
   PATH="/content/authorization.xhtml" SHAPE="288,241,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#content#createuser.xhtml"
-  PATH="/content/createuser.xhtml" SHAPE="288,353,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/content/createuser.xhtml" SHAPE="288,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#content#createuser.xhtml:0" NAME="item"
+   PATH="/content/createuser.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#content#home.xhtml" NAME="output"
+    PATH="/content/home.xhtml" TARGET="rules:#content#home.xhtml"
+    TITLE="success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="error::#content#createuser.xhtml"
+    NAME="output1" PATH="/content/createuser.xhtml"
+    TARGET="rules:#content#createuser.xhtml" TITLE="error" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#content#test.xhtml"
   PATH="/content/test.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#content#userlist.xhtml"
+  PATH="/content/userlist.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

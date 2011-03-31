@@ -10,13 +10,11 @@
 
 </head>
 <ui:composition>
-	<div>active = #{menuController.activeMenuPage.action}
-		#{fn:length(menuController.menuItems)}</div>
 	<div>
 		<h:form id="mymenu">
 			<!-- 			<h:panelGrid columns="#{fn:length(menuController.menuItems)}" -->
 			<!-- 				width="100%"> -->
-			<div style="width: 100%">
+			<div>
 				<ui:repeat var="menu" value="#{menuController.menuItems}">
 					<rich:menuItem
 						styleClass="menu #{menu.styleClass} #{menuController.activeMenuPage.action == menu.action ?'activeMenu':''}"

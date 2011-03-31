@@ -22,10 +22,10 @@ public class GPSData extends AbstractEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+//	@Id
+//	@Column(name = "id")
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private Long id;
 
 	@Column(name = "x")
 	private Double x;
@@ -39,13 +39,17 @@ public class GPSData extends AbstractEntity {
 	@Column(name = "time")
 	private Date time;
 
-	@ManyToOne(cascade = { CascadeType.REFRESH }, fetch = FetchType.EAGER)
+	@ManyToOne(optional=true)
+	@JoinColumn(name="tracks_id", insertable=false, updatable=false, nullable=false)
+	private Track track;
+	
+	@ManyToOne
 	@JoinColumn(name = "transports_id")
 	private Transport transport;
 
-	public Long getId() {
-		return id;
-	}
+//	public Long getId() {
+//		return id;
+//	}
 
 	public Date getTime() {
 		return time;
@@ -67,9 +71,9 @@ public class GPSData extends AbstractEntity {
 		return z;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 
 	public void setTime(Date time) {
 		this.time = time;
@@ -97,4 +101,13 @@ public class GPSData extends AbstractEntity {
 				+ ", z=" + z + "]";
 	}
 
+	public Track getTrack() {
+		return track;
+	}
+
+	public void setTrack(Track track) {
+		this.track = track;
+	}
+
+	
 }

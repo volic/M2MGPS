@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
@@ -12,13 +13,32 @@
 <h:body>
 	<ui:composition template="/template/basepage.xhtml">
 		<ui:define name="header">
+			<div class="maxWidth">
+				<div id="userLogIn">
+					<c:if test="#{userController.user == null}">
+						<h:form>
+							<h:commandLink value="Log in" action="authorization" />
+						</h:form>
+					</c:if>
+					<c:if test="#{userController.user != null}">Wellcome #{userController.user.firstName} #{userController.user.firstName} <h:form>
+							<h:commandLink value="Log out"
+								action="#{authorizationController.logout}" />
+						</h:form>
+					</c:if>
+				</div>
+			</div>
 			<ui:include src="/template/component/menu.xhtml"></ui:include>
 		</ui:define>
-
+		<div></div>
+		<div class="title">
+<!--			<ui:insert name="title">Title Content</ui:insert>-->
+		</div>
 		<ui:define name="footer">
 			<div align="center">
 				<h:outputLink value="http://www.google.com">
-					<h2><i>Google</i></h2>
+					<h2>
+						<i>Google</i>
+					</h2>
 				</h:outputLink>
 			</div>
 		</ui:define>

@@ -2,14 +2,10 @@ package com.navigrad.m2m.webclient.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -19,7 +15,7 @@ import com.navigrad.m2m.server.gps.servises.UserServise;
 import com.navigrad.m2m.webclient.controller.template.Menu;
 import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 
-@ManagedBean(name="createUserController" )
+@ManagedBean(name = "createUserController")
 @RequestScoped
 public class CreateUserController {
 
@@ -30,7 +26,8 @@ public class CreateUserController {
 	@Size(min = 4)
 	@NotEmpty
 	private String password;
-	// @Equal(propertyName = "password")
+	@NotEmpty
+	@Size(min = 4)
 	private String confirmPassword;
 	@Size(min = 1, message = "You must fill login field")
 	private String email;
@@ -43,23 +40,25 @@ public class CreateUserController {
 	private List<User> users = new ArrayList<User>();
 
 	public String createNewUser() {
-		ValidatorFactory validatorFactory = Validation
-				.buildDefaultValidatorFactory();
-		Validator validator = validatorFactory.getValidator();
-		Set<ConstraintViolation<Class<CreateUserController>>> result = validator
-				.validate(CreateUserController.class);
+		// ValidatorFactory validatorFactory = Validation
+		// .buildDefaultValidatorFactory();
+		// Validator validator = validatorFactory.getValidator();
+		// Set<ConstraintViolation<Class<CreateUserController>>> result =
+		// validator
+		// .validate(CreateUserController.class);
 
-//		if (result.isEmpty()) {
-////			throw new NullPointerException();
-//			 return Menu.AUTHORIZATION.action();
-//		} else {
-//			for (ConstraintViolation<Class<CreateUserController>> constraintViolation : result) {
-//				System.out.println(constraintViolation.getPropertyPath()
-//						.toString());
-//				{
-//				}
-//			}
-//		}
+		// if (result.isEmpty()) {
+		// // throw new NullPointerException();
+		// return Menu.AUTHORIZATION.action();
+		// } else {
+		// for (ConstraintViolation<Class<CreateUserController>>
+		// constraintViolation : result) {
+		// System.out.println(constraintViolation.getPropertyPath()
+		// .toString());
+		// {
+		// }
+		// }
+		// }
 		passwordError = CreateUserValidator.checkPassword(password);
 		if (!password.equals(confirmPassword)) {
 			confirmPasswordError = "Psswords didn't match";
@@ -72,8 +71,11 @@ public class CreateUserController {
 		if (passwordError != null || loginError != null
 				|| firstNameError != null || lastNameError != null)
 			return "error";
-		new UserServise().saveUser(login, password, firstName, lastName, email);
-
+		Long l = new UserServise().saveUser(login, password, firstName,
+				lastName, email);
+		if (l == null) {
+			return "error";
+		}
 		return Menu.HOME.action();
 
 	}
@@ -153,5 +155,17 @@ public class CreateUserController {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	@AssertTrue(message = "Confirm password don't match")
+	public boolean isPasswordEquals() {
+		if (password == null || confirmPassword == null) {
+			return false;
+		}
+		return password.equals(confirmPassword);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new CreateUserController().getUsers());
 	}
 }

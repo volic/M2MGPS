@@ -34,4 +34,12 @@ public class UserServise {
 				.getBean("TestConection");
 		return testConection.getUserDAO().findUsers();
 	}
+
+	public User loadUser(String login, String password) {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("gps.xml");
+		TestConection testConection = (TestConection) ctx
+				.getBean("TestConection");
+		return testConection.getUserDAO().findUserByLogin(login);
+	}
+	
 }

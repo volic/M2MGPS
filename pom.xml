@@ -1,12 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>${app.groupId}</groupId>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<app_groupId>com.navigrad</app_groupId>
+		<app_version>0.0.1-SNAPSHOT</app_version>
+		<app_name>M2MGPS_0.1</app_name>
+	</properties>
+	<groupId>${app_groupId}</groupId>
 	<artifactId>M2MGPS</artifactId>
 	<packaging>pom</packaging>
-	<name>M2MGPS</name>
-	<version>${app.version}</version>
+	<name>${app_name}</name>
+	<version>${app_version}</version>
 	<url>http://maven.apache.org</url>
 	<build>
 		<plugins>
@@ -18,16 +23,40 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<app.groupId>com.navigrad</app.groupId>
-		<app.version>0.0.1-SNAPSHOT</app.version>
-		<app.name>${artifactId}-${app.version}</app.name>
-	</properties>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -37,7 +66,7 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>M2MServer</module>
 		<module>M2MWebClient</module>
+		<module>M2MServer</module>
 	</modules>
 </project>

@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -13,18 +15,30 @@
 <h:body>
 	<ui:composition template="/template/headerpage.xhtml">
 		<ui:define name="content">
-			<h:form>
+			<h:form id="loginForm" name="login">
 				<div style="padding: 2px">
 					<div>
+						<h:outputText value="#{authorizationController.errorMessage}" />
+					</div>
+					<div>
 						<h:outputLabel styleClass="label" value="Login" />
-						<h:inputText value="#{authorization.login }" />
+						<h:inputText  autocomplete="off" id="login"
+							value="#{authorizationController.login}">
+							<rich:validator  />
+						</h:inputText>
+						<rich:message for="login" showDetail="false" showSummary="true" />
 					</div>
 					<div>
 
 						<h:outputLabel styleClass="label" value="Password" />
-						<h:inputText value="#{authorization.password }" />
+						<h:inputSecret autocomplete="off" id="password"
+							value="#{authorizationController.password }">
+							<rich:validator />
+						</h:inputSecret>
+						<rich:message for="password" />
 					</div>
-					<h:commandButton value="Enter" />
+					<h:commandButton value="Enter"
+						action="#{authorizationController.login}" />
 				</div>
 			</h:form>
 		</ui:define>

@@ -2,7 +2,8 @@ package com.navigrad.m2m.webclient.controller.template;
 
 public enum Menu {
 	HOME("Home", "home", ""), CREATE_USER("Create User", "createUser", ""), AUTHORIZATION(
-			"Authorization", "authorization", ""), Test("Test CSS", "test","");
+			"Authorization", "authorization", ""), USER_LIST("User list",
+			"userList", "") /* , Test("Test CSS", "test","") */;
 	private String title;
 	private String styleClass;
 	private String action;

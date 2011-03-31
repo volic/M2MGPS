@@ -1,28 +1,121 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>${app.groupId}</groupId>
+	<groupId>${app_groupId}</groupId>
 	<artifactId>M2MServer</artifactId>
-	<version>${app.version}</version>
-<!-- 	<packaging>ear</packaging> -->
+	<version>${app_version}</version>
+	<packaging>jar</packaging>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testOutputDirectory>target/test-classes</testOutputDirectory>
-<!-- 		<plugins> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>net.sf.maven-har</groupId> -->
-<!-- 				<artifactId>maven-har-plugin</artifactId> -->
-<!-- 				<version>1.0</version> -->
-<!-- 			</plugin> -->
-<!-- 		</plugins> -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<includes>
+						<include>**/*.xml</include>
+						<include>**/**</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 	<parent>
-		<groupId>${app.groupId}</groupId>
+		<groupId>${app_groupId}</groupId>
 		<artifactId>M2MGPS</artifactId>
-		<version>${app.version}</version>
+		<version>${app_version}</version>
 	</parent>
 	<dependencies>
+<!--  servlet	/ -->
+		
+<!-- 		- -->
+	
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>3.1.14</version> -->
+<!-- 			<type>jar</type> -->
+<!-- 			<scope>compile</scope> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.quickserver</groupId>
+			<artifactId>org.quickserver</artifactId>
+			<version>1.4.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}\lib\QuickServer1.4.7\dist\QuickServer.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.0.2.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>2.5.6</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.5.6-Final</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.hibernate</groupId> -->
+<!-- 			<artifactId>hibernate-annotations</artifactId> -->
+<!-- 			<version>3.4.0.GA</version> -->
+<!-- 			<type>jar</type> -->
+<!-- 			<scope>compile</scope> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.14.0-GA</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.15</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+		
+<!-- 		<dependency> 
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.1.2</version>
@@ -139,7 +232,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.0.2.GA</version>
-		</dependency>
-	</dependencies>
+	</dependency> -->
+		
 
 </project>
