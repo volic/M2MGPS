@@ -47,8 +47,8 @@ public class TestConection {
 		System.out.println(savedTransports);
 
 		// add
-		 System.out.println(testConection.addGPSData(savedTransports.get(0),
-		 Calendar.getInstance().getTime(), 540.5640, 0564.0, 0564.46));
+//		 System.out.println(testConection.addGPSData(savedTransports.get(0),
+//		 Calendar.getInstance().getTime(), 540.5640, 0564.0, 0564.46));
 
 		List<GPSData> savedGpsData = testConection.getGpsDAO().findGPSs();
 		System.out.println(savedGpsData);

@@ -5,7 +5,7 @@ import javax.faces.bean.SessionScoped;
 
 import com.navigrad.m2m.server.gps.entity.User;
 
-@ManagedBean(name = "user")
+@ManagedBean(name = "userController")
 @SessionScoped
 public class UserController {
 
