@@ -7,6 +7,11 @@
 	<packaging>jar</packaging>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<plugins>
 			<plugin>
@@ -28,10 +33,10 @@
 		<version>${app_version}</version>
 	</parent>
 	<dependencies>
-<!--  servlet	/ -->
-		
-<!-- 		- -->
-	
+		<!-- servlet / -->
+
+		<!-- - -->
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -46,13 +51,13 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>mysql</groupId> -->
-<!-- 			<artifactId>mysql-connector-java</artifactId> -->
-<!-- 			<version>3.1.14</version> -->
-<!-- 			<type>jar</type> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
+		<!-- <version>3.1.14</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.quickserver</groupId>
 			<artifactId>org.quickserver</artifactId>
@@ -84,14 +89,14 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-	
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-annotations</artifactId> -->
-<!-- 			<version>3.4.0.GA</version> -->
-<!-- 			<type>jar</type> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-annotations</artifactId> -->
+		<!-- <version>3.4.0.GA</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
@@ -114,125 +119,41 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-		
-<!-- 		<dependency> 
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.1.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>taglibs</groupId>
-			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
 
+	<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>jstl</artifactId> 
+		<version>1.1.2</version> <scope>compile</scope> </dependency> <dependency> 
+		<groupId>taglibs</groupId> <artifactId>standard</artifactId> <version>1.1.2</version> 
+		</dependency> <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
+		<version>2.5</version> </dependency> <dependency> <groupId>javax.persistence</groupId> 
+		<artifactId>persistence-api</artifactId> <version>1.0</version> <type>jar</type> 
+		<scope>compile</scope> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+		<artifactId>antlr</artifactId> <version>2.7.5H3</version> <type>jar</type> 
+		<scope>compile</scope> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+		<artifactId>hibernate-annotations</artifactId> <version>3.4.0.GA</version> 
+		<type>jar</type> <scope>compile</scope> </dependency> <dependency> <groupId>org.slf4j</groupId> 
+		<artifactId>slf4j-api</artifactId> <version>1.6.1</version> <type>jar</type> 
+		<scope>compile</scope> </dependency> <dependency> <groupId>org.slf4j</groupId> 
+		<artifactId>slf4j-log4j12</artifactId> <version>1.6.1</version> <type>jar</type> 
+		<scope>compile</scope> </dependency> <dependency> <groupId>mysql</groupId> 
+		<artifactId>mysql-connector-java</artifactId> <version>3.1.14</version> <type>jar</type> 
+		<scope>compile</scope> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+		<artifactId>hibernate</artifactId> <version>3.2.7.ga</version> <type>jar</type> 
+		<scope>compile</scope> <exclusions> <exclusion> <artifactId>jta</artifactId> 
+		<groupId>javax.transaction</groupId> </exclusion> </exclusions> </dependency> 
+		<dependency> <groupId>commons-collections</groupId> <artifactId>commons-collections</artifactId> 
+		<version>20040616</version> <type>jar</type> <scope>compile</scope> </dependency> 
+		<dependency> <groupId>javassist</groupId> <artifactId>javassist</artifactId> 
+		<version>3.12.1.GA</version> <type>jar</type> <scope>compile</scope> </dependency> 
+		<dependency> <groupId>org.springframework</groupId> <artifactId>spring</artifactId> 
+		<version>2.5.6.SEC02</version> <type>jar</type> <scope>compile</scope> </dependency> 
+		<dependency> <groupId>org.springframework</groupId> <artifactId>spring-hibernate3</artifactId> 
+		<version>2.0.8</version> <type>jar</type> <scope>compile</scope> </dependency> 
+		<dependency> <groupId>org.quickserver</groupId> <artifactId>org.quickserver</artifactId> 
+		<version>1.4.7</version> <scope>system</scope> <systemPath>${basedir}\lib\QuickServer1.4.7\dist\QuickServer.jar</systemPath> 
+		</dependency> <dependency> <groupId>javax.validation</groupId> <artifactId>validation-api</artifactId> 
+		<version>1.0.0.GA</version> </dependency> <dependency> <groupId>org.hibernate</groupId> 
+		<artifactId>hibernate-validator</artifactId> <version>4.0.2.GA</version> 
+		</dependency> -->
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>antlr</artifactId>
-			<version>2.7.5H3</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>3.4.0.GA</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>3.1.14</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate</artifactId>
-			<version>3.2.7.ga</version>
-			<type>jar</type>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>jta</artifactId>
-					<groupId>javax.transaction</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>20040616</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.12.1.GA</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
-			<version>2.5.6.SEC02</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-hibernate3</artifactId>
-			<version>2.0.8</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.quickserver</groupId>
-			<artifactId>org.quickserver</artifactId>
-			<version>1.4.7</version>
-			<scope>system</scope>
-			<systemPath>${basedir}\lib\QuickServer1.4.7\dist\QuickServer.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.0.2.GA</version>
-	</dependency> -->
-		
 
 </project>

@@ -11,12 +11,12 @@
 		<version>${app_version}</version>
 	</parent>
 	<build>
-<!-- 		<sourceDirectory>src/main/java</sourceDirectory> -->
-<!-- 		<resources> -->
-<!-- 			<resource> -->
-<!-- 				<directory>src/main/resources</directory> -->
-<!-- 			</resource> -->
-<!-- 		</resources> -->
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<plugins>
 			<plugin>
