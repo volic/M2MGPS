@@ -2,6 +2,8 @@ package com.navigrad.m2m.server.gps.dao.home;
 
 import java.util.List;
 
+import javax.persistence.NonUniqueResultException;
+
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 
@@ -33,8 +35,18 @@ public class UserDAOHome extends AbstractDAOHome<User> implements IUserDAO {
 	public User findUserByLogin(String login) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		User user = (User) session.createQuery(
-		"from User as user where user.login = ?").setString(0, login).uniqueResult();
+		User user = null;
+		try {
+			user = (User) session
+					.createQuery("from User as user where user.login = ?")
+					.setString(0, login).uniqueResult();
+
+		} catch (NonUniqueResultException e) {
+			e.printStackTrace();
+			user = (User) session
+					.createQuery("from User as user where user.login = ?")
+					.setString(0, login).list().get(0);
+		}
 		session.getTransaction().commit();
 		return user;
 	}

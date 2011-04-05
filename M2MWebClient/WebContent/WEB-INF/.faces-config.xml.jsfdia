@@ -17,8 +17,13 @@
    <PROCESS-ITEM-OUTPUT ID="createUser::#content#createuser.xhtml"
     NAME="output2" PATH="/content/createuser.xhtml"
     TARGET="rules:#content#createuser.xhtml" TITLE="createUser" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="forget::#content#authorization#forgetpassword.xhtml"
+    NAME="output5" PATH="/content/authorization/forgetpassword.xhtml"
+    TARGET="rules:#content#authorization#forgetpassword.xhtml"
+    TITLE="forget" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="userList::#content#userlist.xhtml"
-    NAME="output5" PATH="/content/userlist.xhtml"
+    NAME="output6" PATH="/content/userlist.xhtml"
     TARGET="rules:#content#userlist.xhtml" TITLE="userList" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
@@ -27,7 +32,14 @@
  <PROCESS-ITEM NAME="rules:#content#menu.xhtml"
   PATH="/content/menu.xhtml" SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#content#authorization.xhtml"
-  PATH="/content/authorization.xhtml" SHAPE="288,241,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/content/authorization.xhtml" SHAPE="288,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#content#authorization.xhtml:0" NAME="item"
+   PATH="/content/authorization.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#content#home.xhtml" NAME="output"
+    PATH="/content/home.xhtml" TARGET="rules:#content#home.xhtml"
+    TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#content#createuser.xhtml"
   PATH="/content/createuser.xhtml" SHAPE="288,353,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#content#createuser.xhtml:0" NAME="item"
@@ -44,4 +56,6 @@
   PATH="/content/test.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#content#userlist.xhtml"
   PATH="/content/userlist.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#content#authorization#forgetpassword.xhtml"
+  PATH="/content/authorization/forgetpassword.xhtml" SHAPE="304,337,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

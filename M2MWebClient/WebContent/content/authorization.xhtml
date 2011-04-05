@@ -22,9 +22,9 @@
 					</div>
 					<div>
 						<h:outputLabel styleClass="label" value="Login" />
-						<h:inputText  autocomplete="off" id="login"
+						<h:inputText autocomplete="off" id="login"
 							value="#{authorizationController.login}">
-							<rich:validator  />
+							<rich:validator />
 						</h:inputText>
 						<rich:message for="login" showDetail="false" showSummary="true" />
 					</div>
@@ -37,7 +37,13 @@
 						</h:inputSecret>
 						<rich:message for="password" />
 					</div>
-					<h:commandButton value="Enter"
+					<div style="width: 150px;">
+						<h:outputLink
+							value="#{request.contextPath}/content/authorization/forgetpassword.jsf">
+							<h:outputText value="forget password?" />
+						</h:outputLink>
+					</div>
+					<h:commandButton style="width: 50px" value="Enter"
 						action="#{authorizationController.login}" />
 				</div>
 			</h:form>

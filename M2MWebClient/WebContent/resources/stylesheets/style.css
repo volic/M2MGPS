@@ -9,6 +9,10 @@ body {
 	height: 100%;
 }
 
+input {
+	padding: 2px;
+}
+
 * {
 	border-color: #64c0c1;
 	padding: 0px;
@@ -56,7 +60,8 @@ input {
 	border-width: 1px;
 	height: 50px;
 }
-.maxWidth{
+
+.maxWidth {
 	float: left;
 	width: 100%;
 }

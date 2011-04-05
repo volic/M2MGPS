@@ -30,6 +30,11 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
+		<from-outcome>forget</from-outcome>
+		<to-view-id>/content/authorization/forgetpassword.xhtml</to-view-id>
+		<redirect/>
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>userList</from-outcome>
 			<to-view-id>/content/userlist.xhtml</to-view-id>
 			<redirect />
@@ -47,5 +52,18 @@
 			<to-view-id>/content/createuser.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/content/authorization.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/content/home.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>error</from-outcome> -->
+<!-- 			<to-view-id>/content/authorization.xhtml</to-view-id> -->
+<!-- 			<redirect /> -->
+<!-- 		</navigation-case> -->
 	</navigation-rule>
 </faces-config>

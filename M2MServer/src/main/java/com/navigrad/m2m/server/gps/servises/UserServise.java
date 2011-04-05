@@ -35,11 +35,16 @@ public class UserServise {
 		return testConection.getUserDAO().findUsers();
 	}
 
-	public User loadUser(String login, String password) {
+	public User loadUser(String login, String password)
+			throws WrongPasswordException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("gps.xml");
 		TestConection testConection = (TestConection) ctx
 				.getBean("TestConection");
-		return testConection.getUserDAO().findUserByLogin(login);
+		User user = testConection.getUserDAO().findUserByLogin(login);
+		if (password == null || !password.equals(user.getPassword())) {
+			throw new WrongPasswordException("User: " + login
+					+ " has different password");
+		}
+		return user;
 	}
-	
 }

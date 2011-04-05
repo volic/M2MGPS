@@ -13,6 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.navigrad.m2m.server.gps.entity.User;
 import com.navigrad.m2m.server.gps.servises.UserServise;
 import com.navigrad.m2m.webclient.controller.template.Menu;
+import com.navigrad.m2m.webclient.entity.PassChecker;
 import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 
 @ManagedBean(name = "createUserController")
@@ -23,7 +24,7 @@ public class CreateUserController {
 	private String login;
 	private String firstName;
 	private String lastName;
-	@Size(min = 4)
+	@Size(min = 4, max = 32)
 	@NotEmpty
 	private String password;
 	@NotEmpty
@@ -71,6 +72,8 @@ public class CreateUserController {
 		if (passwordError != null || loginError != null
 				|| firstNameError != null || lastNameError != null)
 			return "error";
+
+		System.out.println(password);
 		Long l = new UserServise().saveUser(login, password, firstName,
 				lastName, email);
 		if (l == null) {
@@ -130,7 +133,13 @@ public class CreateUserController {
 	}
 
 	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+		try {
+			this.confirmPassword = PassChecker.getInstance().getHash(
+					confirmPassword);
+		} catch (Exception e) {
+			e.printStackTrace();
+			confirmPasswordError = "Server save problem.";
+		}
 	}
 
 	public void setEmail(String email) {
@@ -150,7 +159,12 @@ public class CreateUserController {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		try {
+			this.password = PassChecker.getInstance().getHash(password);
+		} catch (Exception e) {
+			e.printStackTrace();
+			passwordError = "Server save problem.";
+		}
 	}
 
 	public void setUsers(List<User> users) {
@@ -164,8 +178,24 @@ public class CreateUserController {
 		}
 		return password.equals(confirmPassword);
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(new CreateUserController().getUsers());
-	}
+
+	// public static void main(String[] args) {
+	// System.out.println("enter:");
+	// CreateUserController cu = new CreateUserController();
+	// BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	// String line = "";
+	// do {
+	//
+	// try {
+	// line = in.readLine();
+	//
+	// System.out.println("Hash: " + cu.getHash(line));
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// break;
+	// }
+	// } while (!line.equals("q"));
+	// System.out.println("End");
+	// }
+
 }
