@@ -17,9 +17,9 @@ import com.navigrad.m2m.webclient.entity.PassChecker;
 @RequestScoped
 public class AuthorizationController {
 
-	@NotEmpty(message = "Empty Login!!!")
+	@NotEmpty
 	private String login;
-	@NotEmpty(message = "Empty!!!")
+	@NotEmpty
 	@Size(min = 4, message = "Must be > 4")
 	private String password;
 	private String errorMessage;

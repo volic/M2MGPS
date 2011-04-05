@@ -24,6 +24,12 @@ input {
 	width: 1024px;
 }
 
+.button {
+	min-width: 60px;
+	width: auto;
+	
+}
+
 div.menu {
 	width: 24.5%;
 	margin: 0px;

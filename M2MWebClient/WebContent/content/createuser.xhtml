@@ -7,22 +7,26 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich">
 	<ui:define name="content">
 		<div>Add User</div>
 		<h:form>
 			<div>
 				<div>
-					<h:outputLabel styleClass="label" for="login" value="Login" />
+					<h:outputLabel styleClass="label" for="login" value="Login *" />
 					<h:inputText id="login" value="#{createUserController.login }">
+						<a4j:ajax event="keyup" render="loginout" />
 						<rich:validator />
 					</h:inputText>
+					<h:outputText id="loginout"
+						value="#{createUserController.loginError}" />
 					<rich:message for="login" errorStyle="color:red" />
 				</div>
-				<rich:graphValidator value="#{createUserController}">
+				<rich:graphValidator value="#{createUserController}" id="gv">
 
 					<div>
-						<h:outputLabel styleClass="label" value="password" />
+						<h:outputLabel styleClass="label" value="Password *" />
 						<h:inputSecret id="password"
 							value="#{createUserController.password }">
 							<rich:validator />
@@ -30,17 +34,22 @@
 						<rich:message for="password" showDetail="false" showSummary="true" />
 					</div>
 					<div>
-						<h:outputLabel styleClass="label" value="Confirm Password" />
+						<h:outputLabel styleClass="label" value="Confirm Password *" />
 						<h:inputSecret id="confirmPassword"
 							value="#{createUserController.confirmPassword }">
 							<rich:validator />
 						</h:inputSecret>
 						<rich:message for="confirmPassword" />
 					</div>
-					<div style="float: left; width: 100%">
-						<rich:messages />
-					</div>
+
 				</rich:graphValidator>
+				<div>
+					<h:outputLabel styleClass="label" for="email" value="Email" />
+					<h:inputText id="email" value="#{createUserController.email }">
+						<rich:validator />
+					</h:inputText>
+					<rich:message for="email" />
+				</div>
 				<div>
 					<h:outputLabel styleClass="label" for="first_name"
 						value="First Name" />
@@ -52,14 +61,16 @@
 					<h:inputText id="lastName"
 						value="#{createUserController.lastName }" />
 				</div>
+				<div style="float: left; width: 100%">
+					<rich:messages for="gv" />
+					<!--					<rich:messages globalOnly="true" />-->
+				</div>
 			</div>
 			<div>
 				<h:commandButton value="Add"
 					action="#{createUserController.createNewUser}" />
 			</div>
 		</h:form>
-
-		
 	</ui:define>
 	<ui:define name="sidebar"></ui:define>
 </ui:composition>

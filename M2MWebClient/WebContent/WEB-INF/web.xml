@@ -28,7 +28,7 @@
   <location>/content/home.jsf</location>
  </error-page>
  <error-page>
-  <exception-type>Exception</exception-type>
+  <exception-type>java.lang.Exception</exception-type>
   <location>/pages/error/viewexception.jsf</location>
  </error-page>
 </web-app>

@@ -12,8 +12,8 @@ public class ForgetPasswordController {
 
 	@NotEmpty
 	private String login;
-
 	@Email
+	@NotEmpty
 	private String email;
 	private boolean accept = false;
 	private String errorMessage;

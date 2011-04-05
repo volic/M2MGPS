@@ -47,4 +47,16 @@ public class UserServise {
 		}
 		return user;
 	}
+
+	public boolean isUserExist(String login) {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("gps.xml");
+		TestConection testConection = (TestConection) ctx
+				.getBean("TestConection");
+		User user = testConection.getUserDAO().findUserByLogin(login);
+		if (user == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

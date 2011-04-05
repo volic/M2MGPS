@@ -8,13 +8,13 @@ import javax.faces.bean.RequestScoped;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.navigrad.m2m.server.gps.entity.User;
 import com.navigrad.m2m.server.gps.servises.UserServise;
 import com.navigrad.m2m.webclient.controller.template.Menu;
 import com.navigrad.m2m.webclient.entity.PassChecker;
-import com.navigrad.m2m.webclient.validate.CreateUserValidator;
 
 @ManagedBean(name = "createUserController")
 @RequestScoped
@@ -28,9 +28,9 @@ public class CreateUserController {
 	@NotEmpty
 	private String password;
 	@NotEmpty
-	@Size(min = 4)
+	@Size(min = 4, max = 32)
 	private String confirmPassword;
-	@Size(min = 1, message = "You must fill login field")
+	@Email
 	private String email;
 	private String passwordError;
 	private String loginError;
@@ -60,20 +60,19 @@ public class CreateUserController {
 		// }
 		// }
 		// }
-		passwordError = CreateUserValidator.checkPassword(password);
-		if (!password.equals(confirmPassword)) {
-			confirmPasswordError = "Psswords didn't match";
-		}
-		loginError = CreateUserValidator.checkTextField("Login", login);
-		firstNameError = CreateUserValidator.checkTextField("First name",
-				firstName);
-		lastNameError = CreateUserValidator.checkTextField("Last name",
-				lastName);
-		if (passwordError != null || loginError != null
-				|| firstNameError != null || lastNameError != null)
-			return "error";
+//		passwordError = CreateUserValidator.checkPassword(password);
+//		if (!password.equals(confirmPassword)) {
+//			confirmPasswordError = "Psswords didn't match";
+//		}
+//		loginError = CreateUserValidator.checkTextField("Login", login);
+//		firstNameError = CreateUserValidator.checkTextField("First name",
+//				firstName);
+//		lastNameError = CreateUserValidator.checkTextField("Last name",
+//				lastName);
+//		if (passwordError != null || loginError != null
+//				|| firstNameError != null || lastNameError != null)
+//			return "error";
 
-		System.out.println(password);
 		Long l = new UserServise().saveUser(login, password, firstName,
 				lastName, email);
 		if (l == null) {
@@ -132,6 +131,14 @@ public class CreateUserController {
 		return users;
 	}
 
+	@AssertTrue(message = "Confirm password don't match")
+	public boolean isPasswordEquals() {
+		if (password == null || confirmPassword == null) {
+			return false;
+		}
+		return password.equals(confirmPassword);
+	}
+
 	public void setConfirmPassword(String confirmPassword) {
 		try {
 			this.confirmPassword = PassChecker.getInstance().getHash(
@@ -156,6 +163,11 @@ public class CreateUserController {
 
 	public void setLogin(String login) {
 		this.login = login;
+		if (new UserServise().isUserExist(login)) {
+			loginError = "user \"" + login + "\" exist";
+		} else {
+			loginError = null;
+		}
 	}
 
 	public void setPassword(String password) {
@@ -170,32 +182,5 @@ public class CreateUserController {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-
-	@AssertTrue(message = "Confirm password don't match")
-	public boolean isPasswordEquals() {
-		if (password == null || confirmPassword == null) {
-			return false;
-		}
-		return password.equals(confirmPassword);
-	}
-
-	// public static void main(String[] args) {
-	// System.out.println("enter:");
-	// CreateUserController cu = new CreateUserController();
-	// BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-	// String line = "";
-	// do {
-	//
-	// try {
-	// line = in.readLine();
-	//
-	// System.out.println("Hash: " + cu.getHash(line));
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// break;
-	// }
-	// } while (!line.equals("q"));
-	// System.out.println("End");
-	// }
 
 }

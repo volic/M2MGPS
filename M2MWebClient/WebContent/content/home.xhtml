@@ -3,6 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:rich="http://richfaces.org/rich">
@@ -15,7 +16,12 @@
 	<ui:composition template="/template/headerpage.xhtml">
 		<ui:define name="content">
 			<div>M2M Home page</div>
-			
+			<div>
+				<c:if test="#{userController.user != nul}">
+					<h:outputText
+						value="#{userController.user.firstName} #{userController.user.lastName} log in" />
+				</c:if>
+			</div>
 		</ui:define>
 		<ui:define name="sidebar">
 
